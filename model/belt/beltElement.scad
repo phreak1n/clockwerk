@@ -24,7 +24,7 @@ include <beltProfile.scad>
 
 
 module beltElement(width, thickness, length, cutout, c_height, c_width, c_bolt_diameter, rounding, tollerance, cuts, cut_d, cut_w, scale, extra_thickness) {
-    %beltElementBase(width, thickness, length, cutout, c_height, c_width, c_bolt_diameter, rounding, tollerance);
+    beltElementBase(width, thickness, length, cutout, c_height, c_width, c_bolt_diameter, rounding, tollerance);
     beltProfile(width, thickness, length, cutout, c_height, c_width, c_bolt_diameter, rounding, tollerance, cuts, cut_d, cut_w, scale, extra_thickness);
 }
 

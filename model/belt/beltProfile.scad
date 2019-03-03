@@ -13,11 +13,9 @@ module profileCut(cuts, cut_d, cut_w, length, width, cutout, c_height, extra_thi
     translate([-width/2+cut_w, 0, 0.01]) {
         for (i=[0:profileCuts]) {
             translate([i * step, 0, 0]) {
-                if (i==0) {         
-                    x=1;           
+                if (i==0) {          
                 } else {
                     if (i==profileCuts) {
-                        x=1;    
                     } else {
                         singleProfileCut(cut_d,cut_w,length,cutout,c_height,extra_thickness);
                     }
