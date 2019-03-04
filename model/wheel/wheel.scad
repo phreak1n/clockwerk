@@ -1,24 +1,19 @@
 include <../vars.scad>
 
-module teath(depth, width) {
-    x=width/2;
-    y=depth/2;
-    polygon(points=[[x-0.5,y],[x,-y],[-x,-y],[-x+.5,y]]);
-    
-}
 
-module profileTeath(cuts, cut_d, cut_w, width) {
+
+module profileTeath(cuts, cut_d, cut_w, width, wheel_diameter ) {
     step = (width-cut_w*cuts)/cuts;
     profileCuts = cuts + 1;
 
-    translate([-width/2+cut_w, 0]) {
+    translate([0, 0,-width/2]) {
         for (i=[0:profileCuts]) {
-            translate([i * step, 0]) {
+            translate([0, 0, i * step]) {
                 if (i==0) {          
                 } else {
                     if (i==profileCuts) {
                     } else {
-                        teath(cut_d, cut_w);
+                        cylinder(d=wheel_diameter+cut_d*2, h=cut_w, center=true);
                     }
                 }
             }
@@ -36,10 +31,15 @@ module wheel(w_wheel_diameter,
         b_inner_profile_cuts,
         b_belt_width) {
 
-            square(size=[w_wheel_width, w_wheel_diameter/2 ], center=true);
-            translate([0, w_wheel_diameter/4+b_inner_profile_cut_depth/2]) {
-                profileTeath(b_inner_profile_cuts, b_inner_profile_cut_depth, b_inner_profile_cut_width, b_belt_width);    
+            difference() {
+                union() {
+                    cylinder(d=w_wheel_diameter , h=w_wheel_width, center=true);
+                    profileTeath(b_inner_profile_cuts, b_inner_profile_cut_depth, b_inner_profile_cut_width, w_wheel_width, w_wheel_diameter);
+                }
+                cylinder(r=w_wheel_inner_hole_diameter, h=w_wheel_width+2, center=true);
             }
+                
+            
     
     
 }
