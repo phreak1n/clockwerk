@@ -1,10 +1,11 @@
-// Main Settings
+//// Main Settings
 thickness_structural_plate = 4;
 thickness_impact_plate = 9;
 tollerance_flats_moving_free = 1;
 tollerance_rund_moving_free = 0.3;
 
-// Object sizes
+
+// Parts sizes
 // motor
 motor_diameter = 40;
 motor_length = 76;
@@ -16,7 +17,7 @@ damper_diameter = 17;
 damper_lower_hole_diameter = 5;
 damper_upper_hole_diamter = 3;
 
-// Part Settings
+// Model Settings
 // frame
 bp_base_length = 500;
 bp_base_width = 300;
@@ -42,18 +43,32 @@ b_inner_profile_cuts = 4;
 b_inner_profile_cut_depth = 3;
 b_inner_profile_cut_width = 2;
 b_inner_profile_scale = 0.85; // 0.00-1.00
-b_inner_profile_extra_thicknes = 1;
+b_inner_profile_extra_thicknes = 3;
+b_inner_profile_teeth_width = 2 ;
+b_inner_profile_teeth_length = 8 ;
+b_inner_profile_teeth_height = 4 ;
+b_inner_profile_teeth_width_scale = .5 ; // 0.00-1.00
+b_inner_profile_teeth_length_scale = .8 ; // 0.00-1.00
+b_inner_profile_teeth_tollerance = tollerance_flats_moving_free;
+b_inner_profile_teeth_per_element = 4;
 // wheel
 w_wheel_diameter = 80;
 w_wheel_width = b_belt_width;
 w_wheel_inner_hole_diameter = 8;
-w_powerwheel_diameter = 60;
-w_powerwheel_width = b_belt_width;
-w_powerwheel_inner_hole_diameter = motor_shaft_diameter;
+// powerwheel
+//pw_powerwheel_diameter = 60;
+pw_powerwheel_width = b_belt_width;
+pw_powerwheel_inner_hole_diameter = motor_shaft_diameter;
+pw_teeth_amount = 30;
 
+//// Math
+// Fix values
+pi = 3.14159;
 
-// SCAD-Settings
-//fix settings
+math_teeth_space = (b_belt_element_length-(b_inner_profile_teeth_per_element*b_inner_profile_teeth_length))/b_inner_profile_teeth_per_element;
+
+//// SCAD-Settings
+// fix settings
 $fn = 90;
 // scad_view settings
 view_space = 10;

@@ -27,7 +27,62 @@ module profileCut(cuts, cut_d, cut_w, length, width, cutout, c_height, extra_thi
     //singleProfileCut(cut_d,cut_w,length,cutout,c_height,extra_thickness);
 }
 
-module profile(width, thickness, length, cutout, c_height, c_width, c_bolt_diameter, rounding, tollerance, cuts, cut_d, cut_w, scale, extra_thickness) {
+module teethCut(
+    length,
+    teeth_amount,
+    teeth_l,
+    teeth_w,
+    teeth_h,
+    teeth_ls,
+    teeth_ws,
+    teeth_tollerance,
+    c_height,
+    thickness,
+    extra_thickness,
+    math_teeth_space) {
+    
+    step = (length-teeth_l*teeth_amount)/teeth_amount;
+    height = c_height + extra_thickness;
+
+    for (i=[0:teeth_amount]) {
+        translate([teeth_w/2,length/2-(i*(teeth_l+math_teeth_space)), height+thickness/2-0.05+0.01]) {
+            hull() {
+                cube(size=[teeth_w, teeth_l, .1], center=true);
+                translate([0, 0, -teeth_h]) {
+                    scale([teeth_ls, teeth_ws, 1]) {
+                        cube(size=[teeth_w, teeth_l, .1], center=true);
+                    }
+                }
+            }
+        }
+    }    
+    
+}
+
+module profile(
+    width,
+    thickness,
+    length,
+    cutout,
+    c_height,
+    c_width,
+    c_bolt_diameter,
+    rounding,
+    tollerance,
+    cuts,
+    cut_d,
+    cut_w,
+    scale,
+    extra_thickness,
+    teeth_w,
+    teeth_l,
+    teeth_h,
+    teeth_ws,
+    teeth_ls,
+    teeth_amount,
+    teeth_tollerance,
+    math_teeth_space) {
+
     height = c_height + extra_thickness;
     difference() {
         translate([0, cutout/2, height/2+thickness/2]) {
@@ -41,10 +96,66 @@ module profile(width, thickness, length, cutout, c_height, c_width, c_bolt_diame
             }
         }
         profileCut(cuts, cut_d,cut_w,length,width,cutout,c_height,extra_thickness);
+        teethCut(
+            length,
+            teeth_amount,
+            teeth_l,
+            teeth_w,
+            teeth_h,
+            teeth_ls,
+            teeth_ws,
+            teeth_tollerance,
+            c_height,
+            thickness,
+            extra_thickness,
+            math_teeth_space);
     }
 }
 
 
-module beltProfile(width, thickness, length, cutout, c_height, c_width, c_bolt_diameter, rounding, tollerance, cuts, cut_d, cut_w, scale, extra_thickness) {
-    profile(width, thickness, length, cutout, c_height, c_width, c_bolt_diameter, rounding, tollerance, cuts, cut_d, cut_w, scale, extra_thickness);
+module beltProfile(width,
+        thickness,
+        length,
+        cutout,
+        c_height,
+        c_width,
+        c_bolt_diameter,
+        rounding,
+        tollerance,
+        cuts,
+        cut_d,
+        cut_w,
+        scale,
+        extra_thickness,
+        teeth_w,
+        teeth_l,
+        teeth_h,
+        teeth_ws,
+        teeth_ls,
+        teeth_amount,
+        teeth_tollerance,
+        math_teeth_space) {
+    profile(
+        width,
+        thickness,
+        length,
+        cutout,
+        c_height,
+        c_width,
+        c_bolt_diameter,
+        rounding,
+        tollerance,
+        cuts,
+        cut_d,
+        cut_w,
+        scale,
+        extra_thickness,
+        teeth_w,
+        teeth_l,
+        teeth_h,
+        teeth_ws,
+        teeth_ls,
+        teeth_amount,
+        teeth_tollerance,
+        math_teeth_space);
 }

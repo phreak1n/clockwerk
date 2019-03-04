@@ -23,9 +23,63 @@ include <beltProfile.scad>
 
 
 
-module beltElement(width, thickness, length, cutout, c_height, c_width, c_bolt_diameter, rounding, tollerance, cuts, cut_d, cut_w, scale, extra_thickness) {
-    beltElementBase(width, thickness, length, cutout, c_height, c_width, c_bolt_diameter, rounding, tollerance);
-    beltProfile(width, thickness, length, cutout, c_height, c_width, c_bolt_diameter, rounding, tollerance, cuts, cut_d, cut_w, scale, extra_thickness);
+module beltElement(
+    width,
+    thickness,
+    length,
+    cutout,
+    c_height,
+    c_width,
+    c_bolt_diameter,
+    rounding,
+    tollerance,
+    cuts,
+    cut_d,
+    cut_w,
+    scale,
+    extra_thickness,teeth_w,
+    teeth_l,
+    teeth_h,
+    teeth_ws,
+    teeth_ls,
+    teeth_amount,
+    teeth_tollerance,
+    math_teeth_space) {
+
+    beltElementBase(
+        width,
+        thickness,
+        length,
+        cutout,
+        c_height,
+        c_width,
+        c_bolt_diameter,
+        rounding,
+        tollerance);
+    
+    beltProfile(
+        width,
+        thickness,
+        length,
+        cutout,
+        c_height,
+        c_width,
+        c_bolt_diameter,
+        rounding,
+        tollerance,
+        cuts,
+        cut_d,
+        cut_w,
+        scale,
+        extra_thickness,
+        teeth_w,
+        teeth_l,
+        teeth_h,
+        teeth_ws,
+        teeth_ls,
+        teeth_amount,
+        teeth_tollerance,
+        math_teeth_space);
 }
 
 //beltElement(b_belt_width, b_belt_thickness, b_belt_element_length, b_belt_element_cutout, b_belt_element_connector_height, b_belt_element_connector_width, b_belt_element_connector_bolt_diameter);
