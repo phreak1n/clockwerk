@@ -72,3 +72,18 @@ translate([view_space + b_belt_width, bp_base_width/2 + view_space + b_belt_widt
         b_inner_profile_cuts,
         b_belt_width);
 }
+// powerheel
+translate([view_space + b_belt_width + w_wheel_diameter + view_space, bp_base_width/2 + view_space + b_belt_width + w_wheel_diameter, 0]) {
+    powerwheel(
+        pw_powerwheel_width,
+        pw_powerwheel_inner_hole_diameter,
+        pw_teeth_amount,
+        b_inner_profile_teeth_length,
+        b_inner_profile_teeth_width,
+        b_inner_profile_teeth_height,
+        b_inner_profile_teeth_length_scale,
+        b_inner_profile_teeth_width_scale,
+        b_inner_profile_teeth_tollerance,
+        math_teeth_space,
+        pi);
+}

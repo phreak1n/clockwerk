@@ -19,13 +19,13 @@ damper_upper_hole_diamter = 3;
 
 // Model Settings
 // frame
-bp_base_length = 500;
-bp_base_width = 300;
+bp_base_length = 400;
+bp_base_width = 250;
 bp_base_thickness = thickness_structural_plate;
-bp_front_width = 120;
-bp_front_length = 150;
-bp_back_width = 200;
-bp_back_length = 150;
+bp_front_width = 100;
+bp_front_length = 110;
+bp_back_width = 100;
+bp_back_length = 110;
 bpp_protection_height = 45;
 bpp_protection_bottom_scale = .1;
 // belt
@@ -59,7 +59,7 @@ w_wheel_inner_hole_diameter = 8;
 //pw_powerwheel_diameter = 60;
 pw_powerwheel_width = b_belt_width;
 pw_powerwheel_inner_hole_diameter = motor_shaft_diameter;
-pw_teeth_amount = 30;
+pw_teeth_amount = 9;
 
 //// Math
 // Fix values
@@ -69,6 +69,6 @@ math_teeth_space = (b_belt_element_length-(b_inner_profile_teeth_per_element*b_i
 
 //// SCAD-Settings
 // fix settings
-$fn = 90;
+$fn = 120;
 // scad_view settings
 view_space = 10;

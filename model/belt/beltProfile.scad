@@ -96,19 +96,7 @@ module profile(
             }
         }
         profileCut(cuts, cut_d,cut_w,length,width,cutout,c_height,extra_thickness);
-        teethCut(
-            length,
-            teeth_amount,
-            teeth_l,
-            teeth_w,
-            teeth_h,
-            teeth_ls,
-            teeth_ws,
-            teeth_tollerance,
-            c_height,
-            thickness,
-            extra_thickness,
-            math_teeth_space);
+        teethCut(length, teeth_amount, teeth_l, teeth_w, teeth_h, teeth_ls, teeth_ws, teeth_tollerance, c_height, thickness, extra_thickness, math_teeth_space);
     }
 }
 
