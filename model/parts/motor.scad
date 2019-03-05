@@ -1,9 +1,6 @@
 include <../vars.scad>
 
-module motor(motor_diameter,
-        motor_length,
-        motor_shaft_diameter,
-        motor_shaft_extended_length) {
+module motor() {
     rotate([0, 90, 0]) {
         cylinder(d=motor_diameter, h=motor_length, center=true);
     }

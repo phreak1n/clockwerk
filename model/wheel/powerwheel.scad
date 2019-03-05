@@ -11,38 +11,27 @@ module make_ring_of (radius, count) {
     }
 }
 
-module powerwheel(
-    width,
-    hole_diameter,
-    teeth_amount,
-    teeth_l,
-    teeth_w,
-    teeth_h,
-    teeth_ls,
-    teeth_ws,
-    teeth_tollerance,
-    math_teeth_space,
-    pi) {
+module powerwheel() {
     
-    diameter = (teeth_amount * (teeth_l + math_teeth_space)) / pi;
+    diameter = (pw_teeth_amount * (b_inner_profile_teeth_length + math_teeth_space)) / pi;
     difference() {
         union(){
-            cylinder( d=diameter, h=width, center=true);
+            cylinder( d=diameter, h=pw_powerwheel_width, center=true);
             
-            translate([0, 0, -teeth_w/2]) {
-                make_ring_of (radius = diameter/2, count = teeth_amount)
+            translate([0, 0, -b_inner_profile_teeth_width/2]) {
+                make_ring_of (radius = diameter/2, count = pw_teeth_amount)
                 rotate([270, 90, 0]) {
                     hull() {
-                        cube(size=[teeth_w, teeth_l, .1], center=true);
-                        translate([0, 0, -teeth_h]) {
-                            scale([teeth_ls, teeth_ws, 1]) {
-                                cube(size=[teeth_w, teeth_l, .1], center=true);
+                        cube(size=[b_inner_profile_teeth_width, b_inner_profile_teeth_length, .1], center=true);
+                        translate([0, 0, -b_inner_profile_teeth_height]) {
+                            scale([b_inner_profile_teeth_length_scale, b_inner_profile_teeth_width_scale, 1]) {
+                                cube(size=[b_inner_profile_teeth_width, b_inner_profile_teeth_length, .1], center=true);
                             }
                         }
                     }
                 }
             }
         }
-        cylinder(d=hole_diameter, h=width+2, center=true);
+        cylinder(d=pw_powerwheel_inner_hole_diameter, h=pw_powerwheel_width+2, center=true);
     }
 }

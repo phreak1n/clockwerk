@@ -1,9 +1,6 @@
 include <../vars.scad>
 
-module damper(damper_extended_length,
-        damper_diameter,
-        damper_lower_hole_diameter,
-        damper_upper_hole_diamter) {
+module damper() {
             rotate([0, 0, 0]) {
                 intersection() {
                     cylinder(d=damper_diameter, h=damper_extended_length-damper_diameter/2, center=true);

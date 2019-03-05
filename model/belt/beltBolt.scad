@@ -1,18 +1,18 @@
 include <../vars.scad>
 
-module beltBolt(length, diameter, tollerance) {
-    translate([length/2-length/4+diameter, 0, 0]) {
+module beltBolt() {
+    translate([b_belt_width/2-b_belt_width/4+b_belt_element_connector_bolt_diameter, 0, 0]) {
         scale([2.5, 1, 1]) {
-            sphere(d=diameter);   
+            sphere(d=b_belt_element_connector_bolt_diameter);   
         }
     }
-    translate([-length/2+length/4-diameter, 0, 0]) {
+    translate([-b_belt_width/2+b_belt_width/4-b_belt_element_connector_bolt_diameter, 0, 0]) {
         scale([2.5, 1, 1]) {
-            sphere(d=diameter);   
+            sphere(d=b_belt_element_connector_bolt_diameter);   
         }
     }
     rotate([0, 90, 0]) {
-        cylinder(d=diameter-tollerance, h=length, center=true);
+        cylinder(d=b_belt_element_connector_bolt_diameter-b_belt_bolt_tollerance, h=b_belt_width, center=true);
     }
     
 }
