@@ -12,10 +12,12 @@ motor_length = 76;
 motor_shaft_diameter = 5;
 motor_shaft_extended_length = 18;
 // Damper
-damper_extended_length = 100;
+damper_extended_length = 100; //from hole to hole under no compression
 damper_diameter = 17;
 damper_lower_hole_diameter = 5;
+damper_lower_hole_length = 8;
 damper_upper_hole_diamter = 3;
+damper_upper_hole_length = 5;
 
 // Model Settings
 // frame
@@ -60,15 +62,32 @@ w_wheel_inner_hole_diameter = 8;
 pw_powerwheel_width = b_belt_width;
 pw_powerwheel_inner_hole_diameter = motor_shaft_diameter;
 pw_teeth_amount = 9;
+// suspension
+su_upper_leg_angle = 60;
+su_upper_leg_length = 100;
+su_upper_leg_width = 20;
+su_upper_leg_thickness = 5;
+su_upper_leg_connection_block_width = 40;
+su_upper_leg_connection_block_height = 22;
+su_upper_leg_connection_width = 7;
+su_upper_leg_connection_height = 15;
+su_upper_damper_connector_side_thickness = 4;
+su_upper_damper_connector_down_thickness = 2;
+su_lower_leg_length = 190;
+su_lower_leg_width = su_upper_leg_width;
+su_lower_leg_thickness = su_upper_leg_thickness;
+su_connection_bolt = 8;
+su_connection_bolt_tollerance = 0.5;
+su_connection_side_tollerance = 0.5;
 
 //// Math
+math_teeth_space = (b_belt_element_length-(b_inner_profile_teeth_per_element*b_inner_profile_teeth_length))/b_inner_profile_teeth_per_element;
+su_upper_damper_connector_trans_y = -(su_upper_leg_connection_block_width/4+su_upper_leg_connection_block_width/2+su_upper_leg_connection_block_height/2);
+su_upper_damper_connector_thickness = (damper_upper_hole_length + su_upper_damper_connector_side_thickness*2);
 // Fix values
 pi = 3.14159;
-
-math_teeth_space = (b_belt_element_length-(b_inner_profile_teeth_per_element*b_inner_profile_teeth_length))/b_inner_profile_teeth_per_element;
-
 //// SCAD-Settings
 // fix settings
-$fn = 120;
+$fn = 20;
 // scad_view settings
 view_space = 10;
