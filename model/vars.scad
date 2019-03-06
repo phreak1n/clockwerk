@@ -92,6 +92,9 @@ su_upper_damper_connector_down_thickness = 2;
 su_lower_leg_length = 190;
 su_lower_leg_width = su_upper_leg_width;
 su_lower_leg_thickness = su_upper_leg_thickness;
+su_lower_damper_connector_angle = 20;
+su_lower_damper_connector_side_thickness = su_upper_damper_connector_side_thickness;
+su_lower_damper_connector_down_thickness = su_upper_damper_connector_down_thickness;
 su_connection_bolt = 8;
 su_connection_bolt_tollerance = 0.5;
 su_connection_side_tollerance = 0.5;
@@ -100,6 +103,7 @@ su_connection_side_tollerance = 0.5;
 math_teeth_space = (b_belt_element_length-(b_inner_profile_teeth_per_element*b_inner_profile_teeth_length))/b_inner_profile_teeth_per_element;
 math_su_upper_damper_connector_trans_y = -(su_upper_leg_connection_block_width/4+su_upper_leg_connection_block_width/2+su_upper_leg_connection_block_height/2);
 math_su_upper_damper_connector_thickness = (damper_upper_hole_length + su_upper_damper_connector_side_thickness*2);
+math_su_lower_damper_connector_thickness = (damper_lower_hole_length + su_lower_damper_connector_side_thickness*2);
 // Fix values
 pi = 3.14159;
 //// SCAD-Settings

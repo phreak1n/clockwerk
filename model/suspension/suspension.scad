@@ -1,40 +1,27 @@
 include <../vars.scad>
 include <../parts/damper.scad>
+include <../parts/screws.scad>
 
-su_upper_leg_angle = 60;
-su_upper_leg_length = 100;
-su_upper_leg_width = 20;
-su_upper_leg_thickness = 5;
-su_upper_leg_connection_block_width = 40;
-su_upper_leg_connection_block_height = 22;
-su_upper_leg_connection_width = 7;
-su_upper_leg_connection_height = 15;
-su_upper_damper_connector_side_thickness = 4;
-su_upper_damper_connector_down_thickness = 2;
-su_lower_leg_length = 190;
-su_lower_leg_width = su_upper_leg_width;
-su_lower_leg_thickness = su_upper_leg_thickness;
-su_connection_bolt = 8;
-su_connection_bolt_tollerance = 0.5;
-su_connection_side_tollerance = 0.5;
-
-math_su_upper_damper_connector_trans_y = -(su_upper_leg_connection_block_width/4+su_upper_leg_connection_block_width/2+su_upper_leg_connection_block_height/2);
-math_su_upper_damper_connector_thickness = (damper_upper_hole_length + su_upper_damper_connector_side_thickness*2);
-
-//damper_extended_length
-//damper_upper_hole_length
 
 
 module upper_leg_connection_block() {
-    //translate([0, -(su_upper_leg_connection_block_width - su_upper_leg_width)/2, 0]) {
-       cube(size=[ su_upper_leg_connection_block_height , su_upper_leg_connection_block_width, math_su_upper_damper_connector_thickness], center=true);
-        translate([0, su_upper_leg_connection_block_width/4, -(su_upper_leg_connection_height/2+su_upper_leg_thickness/2)]) {
-            cube(size=[su_upper_leg_connection_width, su_upper_leg_connection_width, su_upper_leg_connection_height], center=true);
+    difference() {
+        union() {
+            cube(size=[ su_upper_leg_connection_block_height , su_upper_leg_connection_block_width, math_su_upper_damper_connector_thickness], center=true);
+            translate([0, su_upper_leg_connection_block_width/4, -(su_upper_leg_connection_height/2+su_upper_leg_thickness/2)]) {
+                cube(size=[su_upper_leg_connection_width, su_upper_leg_connection_width, su_upper_leg_connection_height], center=true);
+            }
+            translate([0, -su_upper_leg_connection_block_width/4, -(su_upper_leg_connection_height/2+su_upper_leg_thickness/2)]) {
+                cube(size=[su_upper_leg_connection_width, su_upper_leg_connection_width, su_upper_leg_connection_height], center=true);
+            }
         }
-        translate([0, -su_upper_leg_connection_block_width/4, -(su_upper_leg_connection_height/2+su_upper_leg_thickness/2)]) {
-            cube(size=[su_upper_leg_connection_width, su_upper_leg_connection_width, su_upper_leg_connection_height], center=true);
+        translate([0, 0, math_su_upper_damper_connector_thickness/2-m4_screw_hexsocket_head_height+0.01]) {
+            rotate([0, 180, 0]) {
+                m4x25();
+            }
+            
         }
-    //}
+    }
 }
 
 module upper_damper_connector() {
@@ -65,7 +52,6 @@ module upper_leg() {
         }
         translate([0, math_su_upper_damper_connector_trans_y, 0]) {
             upper_damper_connector();
-            
         }
     }
     translate([su_upper_leg_length/2, 0, 0]) {
@@ -81,22 +67,43 @@ module upper_leg() {
             }
         }
     }
-    
 }
 
 
 
+module lower_damper_connection() {
+    difference(){
+        cylinder(d=su_lower_leg_width, h=math_su_lower_damper_connector_thickness, center=true);
+        cylinder(d=damper_lower_hole_diameter, h=math_su_lower_damper_connector_thickness+2, center=true);
+        translate([su_lower_leg_width/2+damper_lower_hole_diameter/2+su_lower_damper_connector_down_thickness, 0, 0]) {
+            cube(size=[ su_lower_leg_width, su_lower_leg_width, math_su_lower_damper_connector_thickness+0.01], center=true);
+        }
+        hull() {
+            cylinder(d=su_lower_leg_width-su_upper_damper_connector_side_thickness*2, h=damper_upper_hole_length, center=true);
+            translate([su_lower_leg_width, 0, 0]) {
+                cube(size=[su_lower_leg_width, su_lower_leg_width, math_su_lower_damper_connector_thickness], center=true);
+            }
+        }
+    }
+    hull() {
+        translate([-su_lower_leg_width, 0, 0]) {
+            cylinder(d=su_lower_leg_width/10, h=su_lower_leg_thickness, center=true);
+        }
+        difference() {
+            cylinder(d=su_lower_leg_width, h=math_su_lower_damper_connector_thickness, center=true);
+            translate([su_lower_damper_connector_side_thickness, 0, 0]) {
+                cube(size=[su_lower_leg_width, su_lower_leg_width, su_lower_leg_width], center=true);
+            }
+        }
+    }        
+}
 
-
-
-
-
-
-//TODO: add a connection to the wheel
-//TODO: add damperconnection with angleadjust
+module wheel_connection() {
+    cylinder(r=10, h=10, center=true);
+}
 module lower_leg() {
     difference() {
-            union() {
+        union() {
             cube(size=[su_lower_leg_length, su_lower_leg_width, su_lower_leg_thickness], center=true);
             hull() {
                 translate([su_lower_leg_length/2, 0, 0]) {
@@ -112,6 +119,14 @@ module lower_leg() {
             cylinder(d=su_lower_leg_width+su_connection_bolt_tollerance, h=su_upper_leg_thickness+su_connection_side_tollerance, center=true);
         }
     }
+    translate([0, su_lower_leg_width, 0]) {
+        rotate([0, 0, 90-su_lower_damper_connector_angle]) {
+            lower_damper_connection();
+        }    
+    }
+    translate([-su_lower_leg_length/2, 0, 0]) {
+        wheel_connection();
+    }
 }
 
 
@@ -120,10 +135,6 @@ module lower_leg() {
 
 
 
-//upper_leg();
-//lower_leg();
-//damper_dummy();
-//lower_leg_dummy();
 
 
 
