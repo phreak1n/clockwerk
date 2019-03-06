@@ -2,6 +2,7 @@ include <vars.scad>
 
 include <parts/motor.scad>
 include <parts/damper.scad>
+include <parts/screws.scad>
 
 include <frame/frame.scad>
 

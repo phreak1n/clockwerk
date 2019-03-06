@@ -69,6 +69,10 @@ b_inner_profile_teeth_per_element = 4;
 w_wheel_diameter = 80;
 w_wheel_width = b_belt_width;
 w_wheel_inner_hole_diameter = 8;
+// small:wheel
+sw_small_wheel_diameter = w_wheel_diameter/2;
+sw_small_wheel_width = b_belt_width;
+sw_small_wheel_inner_hole_diameter = w_wheel_inner_hole_diameter;
 // powerwheel
 //pw_powerwheel_diameter = 60;
 pw_powerwheel_width = b_belt_width;
@@ -94,8 +98,8 @@ su_connection_side_tollerance = 0.5;
 
 //// Math
 math_teeth_space = (b_belt_element_length-(b_inner_profile_teeth_per_element*b_inner_profile_teeth_length))/b_inner_profile_teeth_per_element;
-su_upper_damper_connector_trans_y = -(su_upper_leg_connection_block_width/4+su_upper_leg_connection_block_width/2+su_upper_leg_connection_block_height/2);
-su_upper_damper_connector_thickness = (damper_upper_hole_length + su_upper_damper_connector_side_thickness*2);
+math_su_upper_damper_connector_trans_y = -(su_upper_leg_connection_block_width/4+su_upper_leg_connection_block_width/2+su_upper_leg_connection_block_height/2);
+math_su_upper_damper_connector_thickness = (damper_upper_hole_length + su_upper_damper_connector_side_thickness*2);
 // Fix values
 pi = 3.14159;
 //// SCAD-Settings
