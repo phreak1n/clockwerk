@@ -19,7 +19,19 @@ damper_lower_hole_length = 8;
 damper_upper_hole_diamter = 3;
 damper_upper_hole_length = 5;
 
-// Model Settings
+//// Screws
+//m3
+m3_screw_hexsocket_head_diameter = 5;
+m3_screw_hexsocket_head_height = 3;
+m3_hexnut_diameter = 6; //Size of wrench
+m3_hexnut_height = 4;
+//m4
+m4_screw_hexsocket_head_diameter = 5;
+m4_screw_hexsocket_head_height = 3;
+m4_hexnut_diameter = 8; //Size of wrench
+m4_hexnut_height = 4;
+
+//// Model Settings
 // frame
 bp_base_length = 400;
 bp_base_width = 250;
