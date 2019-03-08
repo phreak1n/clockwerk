@@ -19,7 +19,6 @@ module upper_leg_connection_block() {
             rotate([0, 180, 0]) {
                 m4x25();
             }
-            
         }
     }
 }
@@ -101,6 +100,7 @@ module lower_damper_connection() {
 module wheel_connection() {
     cylinder(r=10, h=10, center=true);
 }
+
 module lower_leg() {
     difference() {
         union() {
@@ -119,7 +119,7 @@ module lower_leg() {
             cylinder(d=su_lower_leg_width+su_connection_bolt_tollerance, h=su_upper_leg_thickness+su_connection_side_tollerance, center=true);
         }
     }
-    translate([0, su_lower_leg_width, 0]) {
+    translate([-su_lower_damper_connector_distance2joint+su_lower_leg_length/2, su_lower_leg_width, 0]) {
         rotate([0, 0, 90-su_lower_damper_connector_angle]) {
             lower_damper_connection();
         }    
@@ -151,11 +151,17 @@ module damper_dummy(){
 }
 
 module lower_leg_dummy() {
-    translate([0, 50, 0]) {
-        rotate([0, 0, -su_upper_leg_angle-90]) {
+    translate([55, -86, 0]) {
+        rotate([0, 0, -su_upper_leg_angle-55+180]) {
             translate([0, 0, 0]) {
                 lower_leg();   
             }
         }
     }
+}
+
+module suspension_dummy() {
+    upper_leg();
+    lower_leg_dummy();
+    %damper_dummy();
 }
