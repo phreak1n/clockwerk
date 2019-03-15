@@ -3,7 +3,7 @@ include <../parts/damper.scad>
 include <../parts/screws.scad>
 
 
-
+//// upper leg
 module upper_leg_connection_block() {
     difference() {
         union() {
@@ -69,7 +69,7 @@ module upper_leg() {
 }
 
 
-
+//// lower leg
 module lower_damper_connection() {
     difference(){
         cylinder(d=su_lower_leg_width, h=math_su_lower_damper_connector_thickness, center=true);
@@ -91,7 +91,7 @@ module lower_damper_connection() {
         difference() {
             cylinder(d=su_lower_leg_width, h=math_su_lower_damper_connector_thickness, center=true);
             translate([su_lower_damper_connector_side_thickness, 0, 0]) {
-                cube(size=[su_lower_leg_width, su_lower_leg_width, su_lower_leg_width], center=true);
+                cube(size=[su_lower_leg_width, su_lower_leg_width, math_su_lower_damper_connector_thickness], center=true);
             }
         }
     }        
@@ -130,14 +130,7 @@ module lower_leg() {
 }
 
 
-
-
-
-
-
-
-
-
+//// dummys
 module damper_dummy(){
     rotate([0, 0, -su_upper_leg_angle]) {
        translate([damper_extended_length/2, 0, 0]) {
@@ -163,5 +156,5 @@ module lower_leg_dummy() {
 module suspension_dummy() {
     upper_leg();
     lower_leg_dummy();
-    %damper_dummy();
+    //%damper_dummy();
 }

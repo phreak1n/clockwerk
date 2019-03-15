@@ -1,5 +1,7 @@
 include <../vars.scad>
 
+//TODO: Cleanup
+
 module singleProfileCut() {
     translate([0, b_belt_element_cutout/2, b_belt_element_connector_height + b_inner_profile_extra_thicknes+0.01]) {
         cube(size=[b_inner_profile_cut_width, b_belt_element_length, b_inner_profile_cut_depth], center=true);
@@ -7,22 +9,26 @@ module singleProfileCut() {
 }
 
 module profileCut() {
-    step = (b_belt_width-b_inner_profile_cut_width*b_inner_profile_cuts)/b_inner_profile_cuts;
-    profileb_inner_profile_cuts = b_inner_profile_cuts + 1;
+    //step = (b_belt_width-b_inner_profile_cut_width*b_inner_profile_cuts)/b_inner_profile_cuts;
+    cuts = b_inner_profile_cuts + 2;
+    cutsCounter = b_inner_profile_cuts + 1;
+    //step = (b_belt_width-b_inner_profile_cut_width)/(b_inner_profile_cuts);
+    step =b_belt_width/(cuts-1)-(b_inner_profile_cut_width/cuts) ;
 
-    translate([-b_belt_width/2+b_inner_profile_cut_width, 0, 0.01]) {
-        for (i=[0:profileb_inner_profile_cuts]) {
-            translate([i * step, 0, 0]) {
-                if (i==0) {          
+    //translate([-b_belt_width/2+b_inner_profile_cut_width, 0, 0.01]) {
+        for (i=[0:cutsCounter]) {
+            translate([(-b_belt_width/2+b_inner_profile_cut_width/2)+(step*i), 0, 0.01]) {
+                //math_su_beam_length/2-su_upper_leg_connection_block_width/2-i*space
+                if (i==0) {
                 } else {
-                    if (i==profileb_inner_profile_cuts) {
+                    if (i==cutsCounter) {
                     } else {
                         singleProfileCut();
                     }
                 }
             }
         }
-    }
+    //}
     
     //singleProfileCut(b_inner_profile_cut_depth,b_inner_profile_cut_width,b_belt_element_length,b_belt_element_cutout,b_belt_element_connector_height,b_inner_profile_extra_thicknes);
 }

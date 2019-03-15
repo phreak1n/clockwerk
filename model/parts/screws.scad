@@ -50,7 +50,7 @@ module nut_cutout(diameter,height) {
 
 
 
-module m3nut(m3_hexnut_diameter, ) {
+module m3nut() {
     hexnut(m3_hexnut_diameter, m3_hexnut_height, 3);
 }
 module m3xX() {
@@ -73,7 +73,7 @@ module m3x25() {
 }
 
 
-module m4nut(m4_hexnut_diameter, ) {
+module m4nut() {
     hexnut(m4_hexnut_diameter, m4_hexnut_height, 4);
 }
 module m4xX() {
