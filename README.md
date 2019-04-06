@@ -1,25 +1,34 @@
 # ClockWerk
-Autonomus All-Purpuse-Vehicle-Platform for testing and having fun...
+Autonomus All-Purpuse-Vehicle-Platform
 
-## 3D-Print
+## Goal
+Creating a testing-platform to connect software with the real world. It should be as customizable as posible and easy to print. 
 
-## Assembly
+## Parts
+
+All parts are listed in PARTS.md
 
 ## ToDo
 
-### ToDo Main
-- create model
-- make part list
-- make it remote controllable
-- create rpi-platform
+### ToDo - Parts
 
-### ToDo Model
-- create suspension carrier
-- add parallel teethtracks
-- 
+- choose motor
+- choose damper
+- choose singelboardcomputer
+- choose micorcontroller
+- choose sensors
 
-## Restrictions
-- all parts should be printable with a 220mm x 220mm print bed
+### ToDo - CAD
 
+- finish frame
+- create beltdrive
+- create suspension
+- create motorholder
+
+### ToDo - Software
+- recieve signals from the remote
+- create a mixer for beltdrive
+- drive motors by ESC
+- recive signals from sensors
 
 by Calli Brucke 2019
