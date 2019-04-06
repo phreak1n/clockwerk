@@ -1,10 +1,16 @@
 include <../vars.scad>
 include <../parts/screws.scad>
 include <suspension.scad>
+include <belt_tensioner.scad>
 
+//TODO: crete front connection
+module frame_connection_front() {
+    //cube(size=[10, 10, 10], center=true);
+}
 
-
-module frame_connection() {
+//TODO: crete back connection
+module frame_connection_nack() {
+    //cube(size=[10, 10, 10], center=true);
 }
 
 module suspension_connection() {
@@ -48,10 +54,7 @@ module beam() {
                 }        
             }
         }
-    }
-    
-
-    
+    }  
     for (i=[0:wheel_amount-1]) {
         translate([0, math_su_beam_length/2-su_upper_leg_connection_block_width/2-i*space, (math_su_upper_damper_connector_thickness/2-su_beam_thickness/2)]) {
             rotate([180, 0, 0]) {
@@ -63,5 +66,9 @@ module beam() {
 
 module suspension_frame_connection() {
     beam();
-    frame_connection();
+    translate([0, math_su_beam_length/2, 0]) {
+        frame_connection_front();
+    }
+    belt_tensioner();
+
 }

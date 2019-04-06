@@ -13,8 +13,8 @@ motor_length = 76;
 motor_shaft_diameter = 5;
 motor_shaft_extended_length = 18;
 // Damper
-damper_extended_length = 100; //from hole to hole under no compression
-damper_diameter = 17;
+damper_extended_length = 20; //from hole to hole under no compression
+damper_diameter = 10;
 damper_lower_hole_diameter = 5;
 damper_lower_hole_length = 8;
 damper_upper_hole_diamter = 3;

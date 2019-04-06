@@ -9,12 +9,12 @@ include <vars.scad>
 //include <belt/beltElement.scad>
 //include <belt/beltBolt.scad>
 //
-include <wheel/wheel.scad>
-include <wheel/small_wheel.scad>
+//include <wheel/wheel.scad>
+//include <wheel/small_wheel.scad>
 //include <wheel/powerwheel.scad>
 //
 //include <suspension/suspension.scad>
-//include <suspension/suspension_frame_connection.scad>
+include <suspension/suspension_frame_connection.scad>
 
 
-small_wheel() ;
+suspension_frame_connection();
