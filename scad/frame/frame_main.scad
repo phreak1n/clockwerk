@@ -1,7 +1,10 @@
 module frame_main() {
-    difference() {
-        frame_main_main();
-        frame_main_screwholes();   
+    color([127/255, 12/255, 56/255]) {
+        difference() {
+            frame_main_main();
+            frame_main_screwholes();
+            beltdrive_cutout_assembly();
+        }
     }
 }
 

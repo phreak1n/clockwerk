@@ -1,4 +1,4 @@
 include <main.scad>
 
-%frame_assembly();
+frame_assembly();
 beltdrive_assembly();
