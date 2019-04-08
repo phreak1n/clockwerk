@@ -20,6 +20,20 @@ module make_ring_of (radius, count) {
 // along Y-Axis
 module arrange_in_line_Y (length, object_length, count) {
     
+    space = (length - object_length * count) / (count - 1);
+
+    for (i = [0: count -1]){
+        translate([ 0,
+                    length/2-object_length/2-
+                    (space+object_length)*i,
+                    0]) {
+            children ();
+        }
+    }
+}
+// along Y-Axis with space at the ends
+module arrange_in_line_space_Y (length, object_length, count) {
+    
     space = (length - object_length * count) / (count + 1);
 
     for (i = [0: count -1]){

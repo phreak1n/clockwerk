@@ -2,6 +2,8 @@ include <belt_element.scad>
 include <belt_wheel.scad>
 include <belt_powerwheel.scad>
 include <beltdrive_suspension.scad>
+include <beltdrive_motormount.scad>
+include <beltdrive_motormount_clamp.scad>
 
 module beltdrive_assembly() {
     translate([0, 0, frame_main_thickness/2+frame_wall_height/2]) {

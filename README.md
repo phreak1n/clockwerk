@@ -20,15 +20,17 @@ All parts are listed in PARTS.md
 
 ### ToDo - CAD
 
-- finish frame
+- finish frame 
 - create beltdrive
-- create suspension
-- create motorholder
+- add bearings to the wheels
+- create suspension ✔
+- create motorholder ✔
 
 ### ToDo - Software
 - recieve signals from the remote
 - create a mixer for beltdrive
 - drive motors by ESC
 - recive signals from sensors
+
 
 by Calli Brucke 2019
