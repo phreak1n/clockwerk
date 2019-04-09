@@ -50,7 +50,7 @@ frame_wall_thickness = 10;
 frame_connector_block_length = 12;
 // Frame Main
 frame_main_length = 150;
-frame_main_width = 80;
+frame_main_width = 120;
 frame_main_height = 0;
 frame_main_thickness = 4;
 // Frame Front
@@ -91,9 +91,9 @@ beltdrive_suspension_connector_length = 24;
 beltdrive_suspension_connector_width = 12;
 beltdrive_suspension_connector_height = 8;
 // Beltdrive suspension top leg
-beltdrive_suspension_leg_top_length = 40;
-beltdrive_suspension_leg_top_angle = 35;
-beltdrive_suspension_leg_top_joint_dia = 10;
+beltdrive_suspension_leg_top_length = 60;
+beltdrive_suspension_leg_top_angle = 45;
+beltdrive_suspension_leg_top_joint_dia = 15;
 // Beltdrive suspension bottom leg
 beltdrive_suspension_leg_bottom_joint_extra_cutout_height = 2;
 beltdrive_suspension_leg_bottom_joint_extra_cutout_angle = 8;

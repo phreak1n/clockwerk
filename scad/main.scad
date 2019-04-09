@@ -7,6 +7,7 @@ include <functions.scad>
 
 // Parts
 include <parts/motor.scad>
+include <parts/damper.scad>
 
 include <parts/screws.scad>
 include <parts/bearings.scad>
