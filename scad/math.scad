@@ -1,3 +1,7 @@
+// Fixed Values
+pi = 3.16;
+
+
 frame_connector_block_space_to_sides = frame_wall_thickness;
 frame_connector_block_height = frame_connector_block_length;
 

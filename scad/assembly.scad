@@ -2,7 +2,7 @@ include <main.scad>
 
 // Main Body
 frame_assembly();
-//beltdrive_assembly();
+beltdrive_assembly();
 
 // Belt
 translate([frame_main_width*2, 0, 0]) {
@@ -17,3 +17,9 @@ translate([frame_main_width*2, 0, 0]) {
 translate([frame_main_width*2+ 40, 0, 0]) {
     //beltdrive_motormount_clamp();
 }
+
+// powerwheel
+translate([frame_main_width*2+ 40, 60, 0]) {
+    //belt_powerwheel();
+}
+

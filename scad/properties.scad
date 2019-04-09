@@ -73,11 +73,18 @@ beltdrive_belt_block_height = 6;
 beltdrive_belt_block_top_reduce = 4;
 beltdrive_belt_element_connector_dia = 1.75;
 beltdrive_belt_element_connector_thickness = 1;
+//beltdrive_belt_teeth_length = 4;
+//beltdrive_belt_teeth_width = 2;
+//beltdrive_belt_teeth_height = beltdrive_belt_block_height/4*3;
+
 // Beltdrive wheel
 beltdrive_wheel_dia = 30;
 //beltdrive_wheel_inner_dia = beltdrive_suspension_leg_bottom_wheel_connector_dia_thickness*2 + beltdrive_wheel_bolt_dia;
 beltdrive_wheel_bolt_dia = 8;
 beltdrive_wheel_space_to_suspension = 5;
+// Belt powerwheel
+beltdrive_powerwheel_element_amount = 12;
+beltdrive_powerwheel_space_to_motor = beltdrive_wheel_space_to_suspension;
 // Beltdrive suspension
 beltdrive_suspension_elements = 3;
 beltdrive_suspension_connector_length = 24;
