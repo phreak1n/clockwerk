@@ -72,14 +72,15 @@ module frame_back() {
                         frame_wall_height]) {
                 rotate([0, 90, 0]) {
                     parts_motor_beltdrive_main();
+                    /*
                     // for assembly view
                     %parts_motor_beltdrive_main();
                     translate([0, 0, beltdrive_belt_width/2 + beltdrive_powerwheel_space_to_motor]) {
                         rotate([0, 180, 0]) {
                             %belt_powerwheel();
                         }
-                        
                     }
+                    */
                 }
                 
             }
@@ -89,14 +90,15 @@ module frame_back() {
                             frame_wall_height+2]) {
                     rotate([0, 90, 0]) {
                         parts_motor_beltdrive_main();
+                        /*
                         // for assembly view
                         %parts_motor_beltdrive_main();
                         translate([0, 0, beltdrive_belt_width/2 + beltdrive_powerwheel_space_to_motor]) {
                             rotate([0, 180, 0]) {
                                 %belt_powerwheel();
-                            }
-                            
+                            }  
                         }
+                        */
                     }
                     
                 }

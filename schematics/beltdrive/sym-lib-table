@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name generic_symbols)(type Legacy)(uri ${KIPRJMOD}/generic_symbols.lib)(options "")(descr ""))
+)
