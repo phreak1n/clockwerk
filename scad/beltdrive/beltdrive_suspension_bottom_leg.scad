@@ -26,14 +26,14 @@ module beltdrive_suspension_bottom_leg() {
             rotate([0, 90, 0]) {
                 difference() {
                     hull() {
-                        cylinder(   d=beltdrive_suspension_leg_bottom_wheel_connector_dia_thickness*2 + beltdrive_wheel_bolt_dia,
+                        cylinder(   d=beltdrive_suspension_leg_bottom_wheel_connector_dia,
                                     h=beltdrive_suspension_leg_bottom_wheel_connector_width + beltdrive_wheel_space_to_suspension,
                                     center=true);
                         translate([0, 0, -beltdrive_suspension_leg_bottom_wheel_connector_width/2-beltdrive_suspension_leg_bottom_width-beltdrive_wheel_space_to_suspension/2]) {
                             cylinder(d=beltdrive_suspension_leg_bottom_width, h=0.01, center=true);
                         }
                     }
-                    cylinder(d=beltdrive_suspension_leg_top_joint_bolt_dia, h=beltdrive_wheel_width+0.01, center=true);
+                    //cylinder(d=beltdrive_suspension_leg_top_joint_bolt_dia, h=beltdrive_wheel_width+0.01, center=true);
                 }
             }
         }

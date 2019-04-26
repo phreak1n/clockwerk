@@ -27,7 +27,7 @@ drive_type = "beltdrive";
 main_board = "raspberrypi";
 
 // Fixed values
-$fn = 16;
+$fn = 32;
 
 // Main Values
 // ###########
@@ -49,7 +49,7 @@ frame_wall_thickness = 10;
 // Frame Connector Block
 frame_connector_block_length = 12;
 // Frame Main
-frame_main_length = 150;
+frame_main_length = 190;
 frame_main_width = 120;
 frame_main_height = 0;
 frame_main_thickness = 4;
@@ -67,8 +67,8 @@ frame_bottom_screwhole_thickness = 2;
 // Beltdrive
 // #########
 // Beltdrive belt element
-beltdrive_belt_width = 20;
-beltdrive_belt_element_length = 12;
+beltdrive_belt_width = 35;
+beltdrive_belt_element_length = 8;
 beltdrive_belt_block_height = 6;
 beltdrive_belt_block_top_reduce = 4;
 beltdrive_belt_element_connector_dia = 1.75;
@@ -91,13 +91,13 @@ beltdrive_suspension_connector_length = 24;
 beltdrive_suspension_connector_width = 12;
 beltdrive_suspension_connector_height = 8;
 // Beltdrive suspension top leg
-beltdrive_suspension_leg_top_length = 60;
-beltdrive_suspension_leg_top_angle = 45;
+beltdrive_suspension_leg_top_length = 50;
+beltdrive_suspension_leg_top_angle = 35;
 beltdrive_suspension_leg_top_joint_dia = 15;
 // Beltdrive suspension bottom leg
 beltdrive_suspension_leg_bottom_joint_extra_cutout_height = 2;
 beltdrive_suspension_leg_bottom_joint_extra_cutout_angle = 8;
-beltdrive_suspension_leg_bottom_wheel_connector_dia_thickness = 4;
+beltdrive_suspension_leg_bottom_wheel_connector_dia = bearing_608zz_inner_dia/2;
 // Beltdrive motormount
 beltdrive_motormount_width = part_motor_beltdrive_main_length/4;
 beltdrive_motormount_holder_thickness = 4;
